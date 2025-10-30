@@ -1,0 +1,56 @@
+<!-- <p>admin-login works!</p> -->
+
+<div class="login-container">
+    <h2>Admin Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          formControlName="username"
+          type="text"
+          class="form-control"
+          placeholder="Enter username"
+        />
+        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+          Username is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+          placeholder="Enter password"
+        />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+          Password is required.
+        </div>
+      </div>
+
+      <!-- Radio buttons for role selection -->
+      <div class="form-group">
+        <label>Role</label>
+        <div>
+          <label>
+            <input type="radio" formControlName="role" value="SuperAdmin" /> SuperAdmin
+          </label>
+          <label>
+            <input type="radio" formControlName="role" value="Admin" /> Admin
+          </label>
+        </div>
+        <div *ngIf="loginForm.get('role')?.invalid && loginForm.get('role')?.touched" class="error">
+          Role is required.
+        </div>
+      </div>
+  
+      <div *ngIf="loginError" class="error">
+        {{ loginError }}
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>

@@ -1,0 +1,49 @@
+<!-- <p>order-confirmation works!</p> -->
+<div class="loadar" *ngIf="loaderforpayment">
+    <div class="d-flex align-items-center justify-content-center h-100 flex-column">
+        <img src="../assets/loader.gif" class="mb-3" alt="Loading..." />
+        <p class="text-center text-white font-20">{{ LoaderVal }}</p>
+        <p class="text-center text-white font-20">Loading order confirmation...</p>
+        <p class="text-center text-white font-20">Your Payment being processed. It might take a few seconds.</p>
+        <p class="text-center text-white font-20" style="margin-top: -10px;"><strong>Do not refresh or click the "Back/Close" button of your browser.</strong></p>
+    </div>
+</div>
+<!-- <div *ngIf="orderConfirmed; else loading" class="container mt-4"> -->
+<div *ngIf="orderConfirmed" class="container mt-4">
+    <h2 class="text-success text-center">Order Confirmed!</h2>
+    <p class="lead text-center">{{ thankYouMessage }}</p>
+    <p class="lead">OrderId - {{ OrderId }}</p>
+    <h5>Your Delivery Address:</h5>
+    <div class="card mb-4">
+        <div class="card-body">
+            <p><strong>{{ deliveryAddress.recipientName }}</strong></p>
+            <p>{{ deliveryAddress.addressLine1 }}</p>
+            <p *ngIf="deliveryAddress.addressLine2">{{ deliveryAddress.addressLine2 }}</p>
+            <p>{{ deliveryAddress.city }}, {{ deliveryAddress.state }} - {{ deliveryAddress.zipCode }}</p>
+            <p>{{ deliveryAddress.country }}</p>
+        </div>
+    </div>
+    
+    <h5>Order Details:</h5>
+    <ul class="list-group mb-4">
+        <li class="list-group-item" *ngFor="let item of orderDetails">
+            {{ item.productName }} - <strong>₹{{ item.price }}</strong>
+        </li>
+    </ul>
+
+    <h5>Estimated Delivery Date:</h5>
+    <p class="font-weight-bold">{{ getEstimatedDeliveryDate() }}</p>
+  
+    <button class="btn btn-primary" routerLink="/">Go to Home</button>
+</div>
+
+<!-- <ng-template #loading>
+    <div class="text-center mt-4">
+        <p>Loading order confirmation...</p>
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</ng-template> -->
+
+<p *ngIf="errorMessage" class="text-danger mt-3">{{ errorMessage }}</p>

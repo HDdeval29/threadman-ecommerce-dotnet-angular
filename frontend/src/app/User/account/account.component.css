@@ -1,0 +1,30 @@
+.submenu {
+      list-style: none; 
+      padding: 0; 
+      margin: 5px 0 0 20px; 
+} 
+.submenu li {
+      cursor: pointer; 
+      padding: 0.5rem 0;
+}
+  
+.submenu li:hover {
+      text-decoration:none; 
+      color:dodgerblue;
+}
+  
+h6 {
+    margin-top: 0.5rem; 
+}
+
+.card {
+  cursor: pointer; 
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.orderh3{
+  margin-left: 24px;
+}

@@ -1,0 +1,225 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Api\\CoreApi\\StoreCoreApi\\StoreCoreApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\StoreCoreApi.BAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\StoreCoreApi.BAL.csproj",
+        "projectName": "StoreCoreApi.BAL",
+        "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\StoreCoreApi.BAL.csproj",
+        "packagesPath": "C:\\Users\\himan\\.nuget\\packages\\",
+        "outputPath": "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\himan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj": {
+                "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj",
+        "projectName": "StoreCoreApi.DAL",
+        "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj",
+        "packagesPath": "C:\\Users\\himan\\.nuget\\packages\\",
+        "outputPath": "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\himan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Api\\CoreApi\\StoreCoreApi\\StoreCoreApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Api\\CoreApi\\StoreCoreApi\\StoreCoreApi.csproj",
+        "projectName": "StoreCoreApi",
+        "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi\\StoreCoreApi.csproj",
+        "packagesPath": "C:\\Users\\himan\\.nuget\\packages\\",
+        "outputPath": "C:\\Api\\CoreApi\\StoreCoreApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\himan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\StoreCoreApi.BAL.csproj": {
+                "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi.BAL\\StoreCoreApi.BAL.csproj"
+              },
+              "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj": {
+                "projectPath": "C:\\Api\\CoreApi\\StoreCoreApi.DAL\\StoreCoreApi.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Razorpay": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

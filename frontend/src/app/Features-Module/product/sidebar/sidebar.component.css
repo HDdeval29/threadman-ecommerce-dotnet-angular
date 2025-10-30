@@ -1,0 +1,25 @@
+
+ .sidebar {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+}
+.sidebar .form-group {
+  margin-bottom: 1rem;
+}
+.sidebar label {
+  font-weight: bold;
+}
+.sidebar .form-control {
+  border-radius: 0.25rem;
+}
+
+.btn{
+  background-color: #f3f7f5 ;
+}
+.btn-primary{
+  color:black ;
+  background-color: #c0f0d8 ;
+  border: 1px solid #1e5041;
+}

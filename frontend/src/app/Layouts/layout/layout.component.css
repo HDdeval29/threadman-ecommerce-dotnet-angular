@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the host component takes the full height */
+}
+
+.content {
+  flex: 1; /* This allows the content area to expand and take the available space */
+  display: flex;
+  flex-direction: column; /* If needed for further structuring */
+}
+
+/* app-footer {
+  background-color: #f1f1f1; 
+  padding: 0px; 
+  text-align: center; 
+} */

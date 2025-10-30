@@ -1,0 +1,161 @@
+/* Sidebar styles */
+#sidebar {
+    height: 100vh;
+    background-color: #343a40; /* Darker background for the sidebar */
+    color: #fff;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar-header {
+    background-color: #1e5041; /* Slightly lighter dark color for the header */
+    color: #fff;
+    border-bottom: 1px solid #6c757d;
+  }
+  
+  .sidebar-body {
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: #020202; /* Light gray color for nav links */
+    padding: 15px;
+  }
+  
+  .nav-link.active {
+    color: #ffffff; /* White color for active link */
+    background-color: #1e5041; /* Dark background for active link */
+    border-radius: 4px;
+  }
+  
+  .nav-link:hover {
+    background-color: #c0f0d8; /* Lighter dark background on hover */
+    color: #0c0c0c; /* White color on hover */
+  }
+  
+  .main-content {
+    margin-left: 250px; /* Adjust for sidebar width */
+    padding: 20px;
+    width: calc(100% - 250px); /* Adjust for sidebar width */
+  }
+  
+  .card {
+    box-shadow: 0 2px 5px rgb(30, 80, 65);
+  }
+  
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .chart-container {
+    width: 80%; /* or other dimensions */
+    margin: auto; /* Centering container */
+  }
+
+  /* .chart-container {
+    width: 100%; 
+    height: auto; 
+  } */
+  
+  /* @media (max-width: 600px) {
+    .chart-container {
+      height: 300px; Smaller height for smaller screens 
+    }
+  } */
+
+
+ /* Ensure the modal has a smooth fade-in effect */
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+}
+
+/* Style the modal header */
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 15px;
+}
+
+/* Style the close button in the modal header */
+.modal-header .close {
+  font-size: 1.5rem;
+  color: #6c757d;
+  opacity: 1;
+}
+
+/* Style the modal title */
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+/* Style the modal body */
+.modal-body {
+  padding: 20px;
+}
+
+/* Style form groups within the modal */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Style labels */
+.form-group label {
+  font-weight: bold;
+  color: #495057;
+}
+
+/* Style form controls (inputs, textarea, selects) */
+.form-control {
+  border-radius: 0.25rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  font-size: 1rem;
+  padding: 0.50rem 1.2rem;
+}
+
+/* Style the submit button */
+.btn-primary {
+  color:black ;
+  background-color: #c0f0d8 ;
+  border: 1px solid #1e5041;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #1e5041;
+  border-color: #c0f0d8;
+  color: #fff;
+}
+
+/* Style the secondary button (Close button) */
+.btn-secondary {
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+  color: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Style the modal footer */
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 15px;
+}

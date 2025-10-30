@@ -1,0 +1,40 @@
+.btn-outline-custom {
+    color: #0c0c0c;
+    background: #f3f7f5;
+    border: 1px solid #f3f7f5;
+    padding: .375rem 1.75rem !important;
+    border-radius: 20px;
+    /* min-width: 130px; */
+}
+
+.btn-custom {
+    color: #0c0c0c;
+    background: #f3f7f5;
+    padding: .375rem 1.75rem;
+    border-radius: 20px;
+    border: 1px solid #f3f7f5;
+    /* min-width: 130px; */
+    font-weight: 400;
+}
+
+#logo {
+    height: 50px;
+    width: auto;
+}
+
+.navbar{
+    background-color: #1e5041;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+    height: 66px;
+    margin-bottom: -15px;
+  }
+

@@ -1,0 +1,246 @@
+<!-- <p>product-list works!</p> -->
+ 
+<!-- <div>
+  <label for="category">Filter by Category:</label>
+  <select id="category" (change)="onCategoryChange($event)">
+    <option value="All">All</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+</div> -->
+
+<div *ngIf="isLoading">Loading products...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left Sidebar -->
+    <!-- <app-sidebar class="col-lg-2"></app-sidebar> -->
+    <div class="sidebar col-lg-2">
+      <!-- Search Filter -->
+      <div class="form-group mb-3">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText">
+      </div>
+
+      <!-- Category Filter -->
+      <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="categoryDropdownButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Category: {{ selectedCategory || 'Select Category' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="categoryDropdownButton">
+          <li *ngFor="let category of categories">
+            <button class="dropdown-item" (click)="selectCategory(category.categoryName)">
+              {{ category.categoryName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Brand Filter -->
+      <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="brandDropdownButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Brand: {{ selectedBrand || 'Select Brand' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="brandDropdownButton">
+          <li *ngFor="let brand of brands">
+            <button class="dropdown-item" (click)="selectBrand(brand.brandName)">
+              {{ brand.brandName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Size Filter -->
+      <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="sizeDropdownButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Size: {{ selectedSize || 'Select Size' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="sizeDropdownButton">
+          <li *ngFor="let size of sizes">
+            <button class="dropdown-item" (click)="selectSize(size.sizeName)">
+              {{ size.sizeName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Fit Type Filter -->
+      <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="fitTypeDropdownButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Fit Type: {{ selectedFitType || 'Select Fit Type' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="fitTypeDropdownButton">
+          <li *ngFor="let fitType of fitTypes">
+            <button class="dropdown-item" (click)="selectFitType(fitType.fitTypeName)">
+              {{ fitType.fitTypeName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Color Filter -->
+      <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="colorDropdownButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Color: {{ selectedColor || 'Select Color' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="colorDropdownButton">
+          <li *ngFor="let color of colors">
+            <button class="dropdown-item" (click)="selectColor(color.colorName)">
+              {{ color.colorName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Apply Filter Button -->
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+        <button class="btn btn-primary" (click)="clearFilters()">Reset Filters</button>
+      </div>
+    </div>
+    <!-- Right Hand Side Product Display -->
+    <main class="col-lg-10">
+      <div class="container mt-5">
+        <div class="row">
+          <!-- Filter Dropdown -->
+          <div class="col-12 filter-container">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Price Filter
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Discount</a></li>
+                <li><a class="dropdown-item" href="#">Low to High</a></li>
+                <li><a class="dropdown-item" href="#">High to Low</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Product Items -->
+          <div *ngIf="!isLoading && products.length > 0" class="row">
+            <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="product-card" (click)="openModal(product)">
+                <div class="image-container">
+                  <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="{{ product.name }}" />
+                </div>
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description | slice:0:50 }}...</p>
+                <p>Price: {{ product.price | currency }}</p>
+                <p>Category: {{ product.category }}</p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isLoading">Loading...</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Product Grid -->
+<!-- <div *ngIf="!isLoading && products.length > 0" class="container">
+  <div class="row">
+    <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+      <div class="product-card" (click)="openModal(product)">
+        <div class="image-container">
+            <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="{{ product.name }}" />
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description | slice:0:50 }}...</p> 
+        <p>Price: {{ product.price | currency }}</p>
+        <p>Category: {{ product.category }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  
+<!-- Display a message if no products are available -->
+<div *ngIf="!isLoading && products.length === 0">
+  No products available.
+</div>
+
+<!-- Product Detail Modal -->
+
+<!-- <div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProduct.name }}</h2>
+    <p>{{ selectedProduct.description }}</p>
+    <p>Price: {{ selectedProduct.price | currency }}</p>
+    <p>Category: {{ selectedProduct.category }}</p>
+    <button (click)="addToWishlist(selectedProduct)">Add to Wishlist</button>
+    <button (click)="addToCart(selectedProduct)">Add to Cart</button>
+  </div>
+</div> -->
+
+
+<!-- Product List -->
+<!-- Product Detail Modal -->
+<div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="modal-header">
+      <h2>{{ selectedProduct.name }}</h2>
+      <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" class="product-image">
+    </div>
+    <div class="modal-body">
+      <p>{{ selectedProduct.description }}</p>
+      <p>Price: {{ selectedProduct.price | currency }}</p>
+      <p>Category: {{ selectedProduct.category }}</p>
+      
+      <!-- Size Selection -->
+      <!-- <div *ngIf="selectedProduct.size && selectedProduct.size.length > 0">
+        <label>Size:</label>
+        <select [(ngModel)]="selectedSize">
+          <option value="" disabled>Select a size</option>
+          <option *ngFor="let size of selectedProduct.size" [value]="size">{{ size }}</option>
+        </select>
+      </div> -->
+
+
+        <!-- Static Size Selection -->
+      <div>
+        <label>Size:</label>
+        <select [(ngModel)]="selectedSize1">
+          <option value="" disabled selected>Select a size</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+          <option value="XL">Extra Large</option>
+        </select>
+      </div>
+      
+      <!-- Quantity Input -->
+      <div>
+        <label>Quantity:</label>
+        <input type="number" [(ngModel)]="quantity" min="1" [attr.max]="selectedProduct?.stockQuantity ?? 10">
+      </div>
+
+      <!-- Buttons -->
+      <div class="modal-buttons">
+        <button (click)="addToWishlist(selectedProduct)">Add to Wishlist</button>
+        <button (click)="addToCart(selectedProduct)">Add to Cart</button>
+        <button (click)="buyNow(selectedProduct)">Buy Now</button>
+      </div>
+
+      <!-- Reviews -->
+      <div *ngIf="selectedProduct.reviews.length > 0">
+        <h2>Reviews</h2>
+        <div *ngFor="let review of selectedProduct.reviews">
+          <p><strong>{{ review.user }}</strong> (Rating: {{ review.rating }})</p>
+          <p>{{ review.comment }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  

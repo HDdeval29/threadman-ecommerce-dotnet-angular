@@ -1,0 +1,41 @@
+<!-- <p>order-cart works!</p> -->
+ 
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="text-center my-4">Your Cart</h2>
+          <div *ngFor="let item of cartItems"
+            class="d-flex justify-content-between align-items-center border-bottom py-2">
+            <div class="d-flex align-items-center">
+              <img [src]="item.productImageUrl" alt="{{ item.productName }}" class="img-thumbnail me-3"
+                style="width: 60px; height: 60px;">
+              <div>
+                <h5 class="mb-1">{{ item.productName }}</h5>
+                <p class="mb-1">Size: <strong>{{ item.size }}</strong></p>
+                <p class="mb-0">Price: ₹ {{ item.productPrice }}</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-secondary btn-sm me-2" (click)="decreaseQuantity(item)">-</button>
+              <span class="mx-2">{{ item.quantity }}</span>
+              <button class="btn btn-secondary btn-sm me-2" (click)="increaseQuantity(item)">+</button>
+              <button class="btn btn-danger btn-sm" (click)="removeItem(item)">Remove</button>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <h5>Total:</h5>
+            <h5>₹ {{ getTotal() }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <!-- <button class="btn btn-success btn-lg" (click)="proceedToCheckout()">Proceed to Buy</button>
+          <button class="btn btn-warning btn-lg" (click)="clearCart()">Clear Cart</button> -->
+        <button class="btn btn-success btn-lg flex-fill me-2" (click)="proceedToCheckout()">Proceed to Buy</button>
+        <button class="btn btn-warning btn-lg flex-fill" (click)="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.list-group-item {
+    background-color: #f8f9fa; /* Light background for list items */
+}

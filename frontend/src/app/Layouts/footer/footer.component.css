@@ -1,0 +1,125 @@
+/* .footer {
+    background-color: #1e5041; 
+    color: #ffffff; 
+    padding: 20px 0; 
+} */
+
+.footer .footer-content {
+    background: #1e5041;
+    padding: 40px 0 20px 0;
+    color: #ffffff; 
+}
+.footer h6, .footer h4 {
+    margin-bottom: 15px; 
+}
+.footer-info {
+    background: rgba(243, 245, 243, 0.3); 
+    padding: 20px; 
+    border-radius: 1px; 
+    margin-bottom: 8px;
+    margin-right: 40px;
+}
+.footer .footer-content .footer-links.quick-links ul a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.footer .footer-content .footer-links.quick-links ul i {
+    color: #a6f3cc;
+}
+
+.footer .footer-content .footer-links.quick-links ul small {
+    background-color: #66dba0;
+    color: black;
+    font-weight: 300;
+    text-transform: capitalize;
+    padding: 1px;
+}
+
+.footer-links ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.footer-links ul li {
+    margin-bottom: 10px; 
+}
+
+.footer-links a {
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+.footer-newsletter {
+    margin-top: 20px; 
+}
+
+.footer-legal {
+    background-color: #01300b; 
+    padding: 20px 0; 
+}
+.footer .footer-legal .credits {
+    padding-top: 4px;
+    font-size: 13px;
+}
+
+.footer .footer-legal .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #ffffff;
+    color: #1e5041;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.footer .footer-legal .social-links a:hover {
+        background:#a6f3cc;
+        color: #ffffff;
+        text-decoration: none;
+    }
+.footer-legal .social-links a {
+    color: #ffffff; 
+    margin: 0 10px; 
+}
+
+
+@media (max-width: 768px) {
+    .footer-content .row {
+        flex-direction: column;
+    }
+
+    .footer-links, .footer-info, .footer-newsletter {
+        margin-bottom: 20px; 
+    }
+
+    .footer-legal {
+        text-align: center; 
+    }
+    .footer-links ul li {
+        margin-bottom: 5px; 
+    }
+
+    .footer .footer-legal .social-links a {
+        font-size: 16px; 
+        width: 30px; 
+        height: 30px; 
+        padding: 6px 0; 
+    }
+}
+
+@media (max-width: 576px) {
+    .footer h6, .footer h4 {
+        font-size: 1.2em; 
+    }
+
+    .footer p {
+        font-size: 0.9em; 
+    }
+}

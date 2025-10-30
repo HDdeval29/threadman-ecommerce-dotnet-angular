@@ -1,0 +1,197 @@
+<!-- <p>admin-dashboard works!</p> -->
+
+
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <div class="sidebar-header d-flex justify-content-between align-items-center p-3 border-bottom">
+          <h4 class="mb-0">Admin Panel</h4>
+          <!-- Optional: Add a toggle button if using collapsible sidebar -->
+          <!-- <button class="btn btn-primary d-lg-none">Toggle Sidebar</button> -->
+        </div>
+        <div class="sidebar-body">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">User Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Content Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Update Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Delete Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Main Content -->
+      <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-4">
+        <header class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-3 mb-3 border-bottom">
+          <h1>Dashboard</h1>
+        </header>
+  
+        <div class="row">
+          <!-- Example content for Dashboard -->
+          <div class="col-md-6 col-xl-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text">1,234</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Active Sessions</h5>
+                <p class="card-text">567</p>
+              </div>
+            </div>
+          </div>
+          <!-- Chart Container -->
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Sales Data</h5>
+                  <!-- <canvas baseChart
+                [data]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [type]="barChartType">
+               </canvas> -->
+               <div class="chart-container">
+                <canvas baseChart
+                        [data]="barChartData"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [type]="barChartType"
+                        [plugins]="barChartPlugins">
+                </canvas>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+  </div>
+</div>
+  
+  
+  
+
+<!-- product-modal.component.html -->
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="productName">Name</label>
+            <input type="text" class="form-control" id="productName" formControlName="name" placeholder="Product Name">
+          </div>
+          <div class="form-group">
+            <label for="productDescription">Description</label>
+            <textarea class="form-control" id="productDescription" formControlName="description" rows="3" placeholder="Product Description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Price</label>
+            <input type="number" class="form-control" id="productPrice" formControlName="price" placeholder="Product Price">
+          </div>
+          <div class="form-group">
+            <label for="productCategory">Category</label>
+            <select class="form-control" id="productCategory" formControlName="category">
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" (change)="selectCategory(category.categoryName)">{{ category.categoryName }}</option>
+            </select>
+          </div>
+          
+          <!-- <div class="form-group">
+            <label for="productCategory">Category</label>
+            <select class="form-control" id="productCategory" formControlName="category">
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" [value]="category.category">{{ category.categoryName }}</option>
+            </select>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="productSubcategory">Subcategory</label>
+            <select class="form-control" id="productSubcategory" formControlName="subcategory">
+              <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{ subcategory.name }}</option>
+            </select>
+          </div> -->
+          <div class="form-group">
+            <label for="productSubcategory">Subcategory</label>
+            <select class="form-control" id="productSubcategory" formControlName="subcategory">
+              <option value="" disabled selected>Select Subcategory</option>
+              <!-- <option value="1">Clothing</option>
+              <option value="2">Accessories</option> -->
+              <!-- <option *ngFor="let subcategory of subcategories" [value]="subcategory.split(': ')[0]">{{ subcategory.split(': ')[1] }}</option>   [value]="subcategory.id"   --> 
+
+              <option *ngFor="let subcategory of subcategories"  (change)="selectSubCategory(subcategory.name)">{{ subcategory.name }}</option>
+             
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productImage">Image URL</label>
+            <input type="text" class="form-control" id="productImage" formControlName="imageurl" placeholder="Product Image URL">
+          </div>
+          <div class="form-group">
+            <label for="productBrand">Brand</label>
+            <select class="form-control" id="productBrand" formControlName="brandId">
+              <option value="" disabled selected>Select Brands</option>
+              <option *ngFor="let brand of brands" [value]="brand.brandId">{{ brand.brandName }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productSize">Size</label>
+            <select class="form-control" id="productSize" formControlName="sizeId">
+              <option value="" disabled selected>Select Size</option>
+              <option *ngFor="let size of sizes" [value]="size.sizeId">{{ size.sizeName }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productColor">Color</label>
+            <select class="form-control" id="productColor" formControlName="colorId">
+              <option value="" disabled selected>Select Colour</option>
+              <option *ngFor="let color of colors" [value]="color.colorId">{{ color.colorName }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productFitType">Fit Type</label>
+            <select class="form-control" id="productFitType" formControlName="fitTypeId">
+              <option value="" disabled selected>Select FitType</option>
+              <option *ngFor="let fitType of fitTypes" [value]="fitType.fitTypeId">{{ fitType.fitTypeName }}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

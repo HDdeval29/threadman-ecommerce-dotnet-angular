@@ -1,0 +1,96 @@
+
+   <div class="sidebar">
+    <!-- Search Filter -->
+    <div class="form-group mb-3">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText">
+    </div>
+
+    <!-- Category Filter -->
+    <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="categoryDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Category: {{ selectedCategory || 'Select Category' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="categoryDropdownButton">
+            <!-- <li>  
+                <a class="dropdown-item" href="#" *ngFor="let category of categories" (click)="selectCategory(category)">{{ category?.categoryName }}</a>
+            </li> -->
+            <li *ngFor="let category of categories">
+                <!-- Use buttons instead of anchor tags to avoid navigation issues. -->
+                <button class="dropdown-item" (click)="selectCategory(category)">
+                    {{ category?.categoryName }}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Brand Filter -->
+    <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="brandDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Brand: {{ selectedBrand || 'Select Brand' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="brandDropdownButton">
+            <!-- <li><a class="dropdown-item" href="#" *ngFor="let brand of brands" (click)="selectBrand(brand)">{{ brand?.brandName }}</a></li> -->
+            <li *ngFor="let brand of brands">
+                <button class="dropdown-item" (click)="selectBrand(brand)">
+                    {{ brand?.brandName }}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Size Filter -->
+    <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="sizeDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Size: {{ selectedSize || 'Select Size' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="sizeDropdownButton">
+            <!-- <li><a class="dropdown-item" href="#" *ngFor="let size of sizes" (click)="selectSize(size)">{{ size?.sizeName }}</a></li> -->
+            <li *ngFor="let size of sizes">
+                <button class="dropdown-item" (click)="selectSize(size)">
+                    {{ size?.sizeName }}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Fit Type Filter -->
+    <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="fitTypeDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Fit Type: {{ selectedFitType || 'Select Fit Type' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="fitTypeDropdownButton">
+            <!-- <li><a class="dropdown-item" href="#" *ngFor="let fitType of fitTypes" (click)="selectFitType(fitType)">{{ fitType?.fitTypeName }}</a></li> -->
+            <li *ngFor="let fitType of fitTypes">
+                <button class="dropdown-item" (click)="selectFitType(fitType)">
+                    {{ fitType?.fitTypeName }}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Color Filter -->
+    <div class="dropdown mb-3">
+        <button class="btn dropdown-toggle w-100 text-start" type="button" id="colorDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Color: {{ selectedColor || 'Select Color' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="colorDropdownButton">
+            <!-- <li><a class="dropdown-item" href="#" *ngFor="let color of colors" (click)="selectColor(color)">{{ color?.colorName }}</a></li> -->
+            <li *ngFor="let color of colors">
+                <button class="dropdown-item" (click)="selectColor(color)">
+                    {{ color?.colorName }}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Apply Filter Button -->
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+    </div>
+
+    <!-- Optional: Display selected filters for debugging -->
+    <!-- <div>
+        <h3>Selected Filters</h3>
+        <pre>{{ getSelectedFilters() | json }}</pre>
+    </div> -->
+</div>

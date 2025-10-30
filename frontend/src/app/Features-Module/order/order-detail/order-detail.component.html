@@ -1,0 +1,31 @@
+<!-- <p>order-detail works!</p> -->
+
+<div class="container mt-4">
+    <h3 class="mb-4">My Orders</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngFor="let order of userOrders" class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img [src]="order.imageUrl" class="img-fluid rounded-start" alt="{{ order.name }}" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ order.name }}</h5>
+                            <p class="card-text"><strong>Order ID:</strong> {{ order.formattedOrderId }}</p>
+                            <p class="card-text"><strong>Total:</strong> ${{ order.totalAmount }}</p>
+                            <p class="card-text"><strong>Status:</strong> {{ order.orderStatus || 'Pending' }}</p>
+                            <p class="card-text"><strong>Date:</strong> {{ order.orderDate | date:'medium' }}</p>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-warning me-2" (click)="cancelOrder(order)">Cancel Order</button>
+                                <button class="btn btn-primary" (click)="returnOrder(order)">Return Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,80 @@
+<!-- <p>customer-login works!</p> -->
+
+<div class="loadar" *ngIf="loaderforpayment">
+    <div class="d-flex align-items-center justify-content-center h-100 flex-column">
+        <img src="../assets/loader.gif" class="mb-3" alt="Loading..." />
+        <p class="text-center text-white font-20">{{ LoaderVal }}</p>
+    </div>
+</div>
+<!-- style="height: calc(100vh - 340px);" -->
+<section  class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="shadow bg-body rounded">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="text-white loginheader text-center p-3">
+                                <h4 class="mb-0 text-uppercase">Login</h4>
+                            </div>
+                        </div>  
+                        <div class="col-lg-6">
+                            <div class="p-3">
+                                <h3 class="mb-2">Welcome to Our Application!</h3>
+                                <p class="mb-0">Your journey to better solutions starts here.</p>
+                                <img src="../../../assets/images/homepage.jpg" alt="homepage" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="mb-0 p-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">User Name</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                        formControlName="userName" aria-describedby="emailHelp">
+                                    <span *ngIf="submmitted && V['userName'].errors">
+                                        <span *ngIf="V['userName'].errors['required']">UserName is Required</span>
+                                    </span>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                        formControlName="password">
+                                    <span *ngIf="submmitted && V['password'].errors">
+                                        <span *ngIf="V['password'].errors['required']">Password is Required</span>
+                                    </span>
+                                </div>
+                                <!-- <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div> -->
+                                
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                                <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+                                    {{ errorMessage }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="container">
+   <form [formGroup]="loginForm">
+       <input type="text" formControlName="userName">
+       <span *ngIf="submmitted && V['userName'].errors">
+        <span *ngIf="V['userName'].errors['required']">UserName is Required</span>
+       </span><br>
+       <input type="text" formControlName="password">
+       <span *ngIf="submmitted && V['password'].errors">
+        <span *ngIf="V['password'].errors['required']">Password is Required</span>
+       </span><br>
+       <button (click)="submit()" class="btn btn-success">Submit</button>
+   </form>
+</div>  -->

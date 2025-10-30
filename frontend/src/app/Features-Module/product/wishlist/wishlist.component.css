@@ -1,0 +1,58 @@
+/* wishlist.component.css */
+/* .product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+   */
+  /* .error {
+    color: red;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  li div {
+    margin-left: 20px;
+  } */
+  
+.product-image {
+    /* height: 150px; 
+    object-fit: cover;  */
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+.card {
+    border: 1px solid #ddd; 
+    border-radius: 0.5rem; 
+}
+
+
+.loadar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: rgba(255, 255, 255, 0.993);
+}
+
+  .loadar img {
+      width: 100px;
+  }
