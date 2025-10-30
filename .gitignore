@@ -1,0 +1,13 @@
+# .NET 
+bin/ 
+obj/ 
+.vs/ 
+ECHO is on.
+# Angular 
+node_modules/ 
+dist/ 
+.angular/ 
+ECHO is on.
+# Logs and others 
+*.log 
+.env 
